@@ -49,7 +49,7 @@ class Product {
                 const imageName = uuidv4() + `.${extension}`;
                 const __dirname = path.resolve();
                 const newPath =
-                  __dirname + `/client/public/images/${imageName}`;
+                  __dirname + `/client/build/images/${imageName}`;
                 images[`image${i + 1}`] = imageName;
                 fs.copyFile(files[`image${i + 1}`].filepath, newPath, (err) => {
                   if (err) {
@@ -169,7 +169,7 @@ class Product {
         console.log(key);
         let image = product[key];
         let __dirname = path.resolve();
-        let imagePath = __dirname + `/client/public/images/${image}`;
+        let imagePath = __dirname + `/client/build/images/${image}`;
         fs.unlink(imagePath, (err) => {
           if (err) {
             throw new Error(err);
