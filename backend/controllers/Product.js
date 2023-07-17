@@ -169,7 +169,7 @@ class Product {
         console.log(key);
         let image = product[key];
         let __dirname = path.resolve();
-        let imagePath = __dirname + `/../client/public/images/${image}`;
+        let imagePath = __dirname + `/client/public/images/${image}`;
         fs.unlink(imagePath, (err) => {
           if (err) {
             throw new Error(err);
