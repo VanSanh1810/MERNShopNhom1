@@ -70,8 +70,8 @@ class PaymentController {
             }),
             customer: customer.id,
             mode: 'payment',
-            success_url: `${process.env.CLIENT}/user?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${process.env.CLIENT}/cart`,
+            success_url: `${process.env.CLIENT ? process.env.CLIENT : ""}/user?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${process.env.CLIENT ? process.env.CLIENT : ""}/cart`,
         });
         res.json({ url: session.url });
     }
