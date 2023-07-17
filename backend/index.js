@@ -1,4 +1,5 @@
 require('dotenv').config()
+import path from 'path';
 const express = require("express");
 const env = require("./config/envConfig");
 const cors = require("cors");
@@ -33,6 +34,15 @@ app.use("/api", categoryRoutes);
 app.use("/api", productRoutes);
 app.use("/api", paymentRoutes);
 app.use("/api", orderRoutes);
+
+if(process.env.NODE_ENV === 'production'){
+  const __dirname = path.resolve();
+  app.use(express.static(path.join(__dirname, '/client/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 const port = env.PORT || 5000;
 
