@@ -3,6 +3,7 @@ import AdminLogin from "../screens/auth/AdminLogin";
 import Categories from "../screens/dashboard/Categories";
 import CreateCategory from "../screens/dashboard/CreateCategory";
 import Products from "../screens/dashboard/Products";
+import Customers from "../screens/dashboard/Customers";
 import UpdateCategory from "../screens/dashboard/UpdateCategory";
 import CreateProduct from "../screens/dashboard/CreateProduct";
 import Private from "./Private.js";
@@ -56,6 +57,22 @@ const Routing = () => {
           />
         </Route>
         <Route path="dashboard">
+        <Route
+            path="customers"
+            element={
+              <Private>
+                <Customers />
+              </Private>
+            }
+          />
+          <Route
+            path="customers/:page"
+            element={
+              <Private>
+                <Customers />
+              </Private>
+            }
+          />
           <Route
             path="products"
             element={
