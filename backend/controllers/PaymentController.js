@@ -82,7 +82,7 @@ class PaymentController {
         let event;
         try {
             event = stripe.webhooks.constructEvent(request.rawBody, sig, process.env.ENDPOINTSECRET);
-            console.log("🚀 ~ file: PaymentController.js:85 ~ PaymentController ~ checkOutSession ~ request.rawBody:", request.rawBody)
+            //console.log("🚀 ~ file: PaymentController.js:85 ~ PaymentController ~ checkOutSession ~ request.rawBody:", request.rawBody)
             console.log('payment success');
         } catch (err) {
             console.log(err.message);
