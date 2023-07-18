@@ -72,16 +72,20 @@ module.exports.login = async (req, res) => {
 // @access Private
 // @desc Get a list of customers
 module.exports.getCustomer = async (req, res) => {
+    console.log(1);
     const { page } = req.params;
     const perPage = 5;
     const skip = (page - 1) * perPage;
     try {
+    console.log(2);
       const count = await UserModel.find({}).countDocuments();
       const response = await UserModel.find({})
         .skip(skip)
         .limit(perPage);
+        console.log(3);
       return res.status(200).json({ customers: response, perPage, count });
     } catch (error) {
+        console.log(4);
       console.log(error.message);
     }
 }
